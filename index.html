@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MCP Demo Frontend</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 30px;
+      text-align: center;
+    }
+
+    #box, #chartContainer, #questionnaire {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px auto;
+      border: 1px solid #ddd;
+      width: 320px;
+    }
+
+    button {
+      padding: 10px 15px;
+      cursor: pointer;
+      background: black;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      margin-top: 10px;
+    }
+    button:hover {
+      background: #333;
+    }
+  </style>
+
+  <!-- chart.js via CDN, no install needed -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+  <h1>MCP Demo Website</h1>
+  <p>Minimal frontend + chart + questionnaire.</p>
+
+  <!-- simple interactive box -->
+  <div id="box">
+    <p id="message">Click the button to change this text.</p>
+    <button onclick="changeMessage()">Change Message</button>
+  </div>
+
+  <!-- chart section -->
+  <div id="chartContainer">
+    <h3>User Created Chart</h3>
+    <canvas id="demoChart" width="300"></canvas>
+    <button onclick="updateChart()">Update Chart</button>
+  </div>
+
+  <!-- questionnaire section -->
+  <div id="questionnaire">
+    <h3>Simple Questionnaire</h3>
+    <p>1. How satisfied are you with the website?</p>
+    <select id="q1">
+      <option>Very Satisfied</option>
+      <option>Satisfied</option>
+      <option>Neutral</option>
+      <option>Dissatisfied</option>
+    </select>
+
+    <p>2. Would you recommend it?</p>
+    <select id="q2">
+      <option>Yes</option>
+      <option>No</option>
+    </select>
+
+    <button onclick="submitAnswers()">Submit</button>
+
+    <p id="qResult" style="margin-top:10px; font-weight:600;"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
